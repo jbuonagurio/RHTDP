@@ -23,7 +23,7 @@ void c_getmdy(const int month, const int iday, const int iyear, double *date, in
   return;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(name = ".htdpinit")]]
 void htdpinit()
 {
   // Obtain parameters defining crustal motion model
