@@ -1,0 +1,4 @@
+## -*- mode: Makefile; -*-
+##
+PKG_FFLAGS = -fno-align-commons
+PKG_CPPFLAGS = -I src/htdp
