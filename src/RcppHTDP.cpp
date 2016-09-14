@@ -2,9 +2,26 @@
 #include "htdp.h"
 using namespace Rcpp;
 
-// Forward Declarations
-void htdpinit();
-void c_getmdy(const int month, const int iday, const int iyear, double *date, int *mins);
+// Reimplementation of interactive subroutine GETMDY in htdp.for
+void c_getmdy(const int month, const int iday, const int iyear, double *date, int *mins)
+{
+  // Calculate modified Julian date
+  int mjd = 0, mjd0 = 0, mjd1 = 0, i = 1;
+  iymdmj_(&iyear, &month, &iday, &mjd);
+
+  // Calculate time in decimal years (date)
+  iymdmj_(&iyear, &i, &i, &mjd0);
+  int iyear1 = iyear + 1;
+  iymdmj_(&iyear1, &i, &i, &mjd1);
+  int day = mjd - mjd0;
+  int denom = mjd1 - mjd0;
+  *date = iyear + (day / denom);
+
+  // calculate Julian time in minutes (mins)
+  *mins = mjd * 24 * 60;
+
+  return;
+}
 
 // [[Rcpp::export]]
 void htdpinit()
@@ -83,26 +100,3 @@ DataFrame displacement(NumericMatrix xy, Date start, Date end, int iopt)
 
   return df;
 }
-
-
-// Reimplementation of interactive subroutine GETMDY in htdp.for
-void c_getmdy(const int month, const int iday, const int iyear, double *date, int *mins)
-{
-  // Calculate modified Julian date
-  int mjd = 0, mjd0 = 0, mjd1 = 0, i = 1;
-  iymdmj_(&iyear, &month, &iday, &mjd);
-
-  // Calculate time in decimal years (date)
-  iymdmj_(&iyear, &i, &i, &mjd0);
-  int iyear1 = iyear + 1;
-  iymdmj_(&iyear1, &i, &i, &mjd1);
-  int day = mjd - mjd0;
-  int denom = mjd1 - mjd0;
-  *date = iyear + (day / denom);
-
-  // calculate Julian time in minutes (mins)
-  *mins = mjd * 24 * 60;
-
-  return;
-}
-
