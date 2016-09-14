@@ -2,7 +2,7 @@
 
 RHTDP provides R bindings to the NGS [Horizontal Time-Dependent Positioning](https://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml) utility, v3.2.5, written by Richard Snay, Chris Pearson, and Jarir Saleh of NGS. HTDP allows users to transform positional coordinates across time and between spatial reference frames.
 
-RHTDP is a work-in-progress; currently only crustal displacement calculations are implemented. Velocity calculations and transformations between reference frames are planned, as well as integration with the [sp](https://cran.r-project.org/web/packages/sp/index.html) package.
+RHTDP is a work-in-progress; currently only crustal displacement calculations are implemented. Velocity calculations and transformations between reference frames are planned, as well as integration with the [sp](https://cran.r-project.org/package=sp) package.
 
 ## Installation
 
