@@ -55,8 +55,8 @@ C  The parameters in common block tranpa1 are computed using the IERS values of 
          VZ = VZ * 1000.d0
 
       ELSE
-         write(luout,*) ' Improper reference frame in routine vtranf'
-         stop
+c        write(luout,*) ' Improper reference frame in routine vtranf'
+c        stop
       ENDIF
 
       RETURN
