@@ -1,6 +1,9 @@
 src/*.o
 src/*.so
 src/*.dll
+src/htdp/*.o
+src/htdp/*.so
+src/htdp/*.dll
 .Rhistory
 .RData
 .Rproj.user

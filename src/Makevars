@@ -1,4 +1,19 @@
 ## -*- mode: Makefile; -*-
-##
-PKG_FFLAGS = -fno-align-commons
-PKG_CPPFLAGS = -I src/htdp
+
+PKG_CPPFLAGS = -I./htdp
+PKG_LIBS = -Lhtdp -lhtdp
+
+SOURCES_C = RcppExports.cpp RcppHTDP.cpp
+OBJECTS = $(SOURCES_C:.cpp=.o)
+
+.PHONY: all htdp/htdp.a
+
+all: $(SHLIB)
+$(SHLIB): htdp/htdp.a $(OBJECTS)
+
+htdp/htdp.a:
+	@(cd htdp && $(MAKE) static FC="$(FC)" FFLAGS="$(FFLAGS)")
+
+clean:
+	@(cd htdp && $(MAKE) clean)
+ 
