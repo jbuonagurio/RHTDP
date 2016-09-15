@@ -1,18 +1,23 @@
 ## -*- mode: Makefile; -*-
 
 PKG_CPPFLAGS = -I./htdp
-PKG_LIBS = -Lhtdp -lhtdp
+PKG_LIBS = $(SUBLIBS) $(FLIBS)
+
+MkInclude = $(R_HOME)/etc${R_ARCH}/Makeconf
 
 SOURCES_C = RcppExports.cpp RcppHTDP.cpp
 OBJECTS = $(SOURCES_C:.cpp=.o)
 
-.PHONY: all htdp/htdp.a
+SUBDIRS = htdp
+SUBLIBS = $(SUBDIRS:=.a)
+
+.PHONY: all sublibs
 
 all: $(SHLIB)
-$(SHLIB): htdp/htdp.a $(OBJECTS)
+$(SHLIB): $(OBJECTS) sublibs
 
-htdp/htdp.a:
-	@(cd htdp && $(MAKE) static FC="$(FC)" FFLAGS="$(FFLAGS)")
+sublibs:
+	@(cd htdp && $(MAKE) static FC="$(FC)" FFLAGS="$(FFLAGS)" MkInclude="$(MkInclude)")
 
 clean:
 	@(cd htdp && $(MAKE) clean)

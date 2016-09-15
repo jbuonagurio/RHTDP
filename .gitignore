@@ -1,5 +1,5 @@
 src/*.o
-src/*.so
+src/*.a
 src/*.dll
 src/htdp/*.o
 src/htdp/*.a

@@ -1,3 +1,5 @@
+include $(MkInclude)
+
 SOURCES = \
 	compsn.f \
 	comvel.f \
@@ -42,9 +44,7 @@ SOURCES = \
 
 OBJECTS = $(SOURCES:.f=.o)
 
-LIB_A = htdp.a
-LIB_SO = htdp.so
-LIB_DYN = htdp.dylib
+LIB_A = ../htdp.a
 
 all: static
 static: $(LIB_A)
