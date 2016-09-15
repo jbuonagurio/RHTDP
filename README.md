@@ -7,9 +7,6 @@ RHTDP is a work-in-progress; currently only crustal displacement calculations ar
 ## Installation
 
 ```R
-# Release version from CRAN:
-install.packages("htdp")
-
 # Development version from GitHub:
 # install.packages("devtools")
 devtools::install_github("jbuonagurio/RHTDP")
