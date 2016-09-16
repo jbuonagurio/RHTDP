@@ -1,27 +1,4 @@
 ## -*- mode: Makefile; -*-
 
 PKG_CPPFLAGS = -I./htdp
-PKG_LIBS = -L. -lhtdp $(FLIBS)
-
-MkInclude = $(R_HOME)/etc${R_ARCH}/Makeconf
-
-SOURCES_C = RcppExports.cpp RcppHTDP.cpp
-OBJECTS = $(SOURCES_C:.cpp=.o)
-
-.PHONY: all libhtdp.a
-
-## Based on 'Matrix' package on CRAN.
-## We have to clean here, to clean up between architectures:
-## INSTALL only cleans src/*.o src/*$(SHLIB_EXT) for each arch
-
-all: $(SHLIB)
-$(SHLIB): $(OBJECTS) libhtdp.a
-
-libhtdp.a:
-	@(cd htdp && $(MAKE) static FC="$(FC)" FFLAGS="$(FFLAGS)" MkInclude="$(MkInclude)")
-
-clean: subclean
-	@-rm -f *.o $(SHLIB)
- 
-subclean:
-	@(cd htdp && MkInclude="$(MkInclude)" $(MAKE) clean)
+PKG_LIBS = $(FLIBS)
