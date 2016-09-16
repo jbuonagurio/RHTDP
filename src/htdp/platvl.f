@@ -28,9 +28,9 @@
      1        -10.615D-9,  9.148D-9,-1.682D-9, -10.626D-9/
 
       IF (IPLATE .LE. 0 .OR. IPLATE .GT. 7) THEN
-c         WRITE (LUOUT, 1) IPLATE
-c   1     FORMAT(' Improper plate ID in PLATVL = ', I6)
-c         STOP
+          WRITE (LUOUT, 1) IPLATE
+    1     FORMAT(' Improper plate ID in PLATVL = ', I6)
+          STOP
       ENDIF
 
       VX = -WZ(IPLATE) * Y + WY(IPLATE) * Z

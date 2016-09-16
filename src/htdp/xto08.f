@@ -25,7 +25,7 @@ c     if (iopt .eq. 0 .or. iopt .eq. 1) then
       endif
 
 ***Convert to geodetic coordinates
-c     IF(.NOT.FRMXYZ(X2,Y2,Z2,RLAT,ELON,EHT08))STOP 666
+      IF(.NOT.FRMXYZ(X2,Y2,Z2,RLAT,ELON,EHT08))STOP 666
 
       WLON = -ELON
  100  IF(WLON .LT. 0.D0) THEN
