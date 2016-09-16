@@ -13,5 +13,5 @@ iopt()
     \item{value}{The description of the reference frame.}
 }
 \seealso{
-  \code{\link{displacement}}
+  \code{\link{displace}}
 }

@@ -39,19 +39,21 @@ void htdpinit()
 }
 
 // [[Rcpp::export]]
-DataFrame displacement(NumericMatrix xy, Date start, Date end, int iopt)
+DataFrame displace(NumericMatrix xy, Date t0, Date t1, int iopt)
 {
+  int nrows = xy.nrow();
+
   if (iopt < 1 || iopt > 23 || iopt == 4) {
     stop("Invalid reference frame");
   }
 
   // Extract MDY for GETMDY subroutine
-  int d0 = start.getDay();
-  int m0 = start.getMonth();
-  int y0 = start.getYear();
-  int d1 = end.getDay();
-  int m1 = end.getMonth();
-  int y1 = end.getYear();
+  int d0 = t0.getDay();
+  int m0 = t0.getMonth();
+  int y0 = t0.getYear();
+  int d1 = t1.getDay();
+  int m1 = t1.getMonth();
+  int y1 = t1.getYear();
 
   if (y0 <= 1906 || y1 <= 1906) {
     stop("The model is not valid for dates prior to 1906");
@@ -63,30 +65,46 @@ DataFrame displacement(NumericMatrix xy, Date start, Date end, int iopt)
   c_getmdy(m0, d0, y0, &date0, &min0);
   c_getmdy(m1, d1, y1, &date1, &min1);
 
-  //----------------------------------------------------------------------------
-  // Main HTDP Routines
-  //----------------------------------------------------------------------------
+  // Ensure lat/lon is in valid range
+  for (int i = 0; i < nrows; i++) {
+    if (xy(i,1) < -90 || xy(i,1) > 90) {
+      stop("Invalid latitude");
+    }
+    if (xy(i,0) < -180 || xy(i,0) > 180) {
+      stop("Invalid longitude");
+    }
+  }
 
-  int nrows = xy.nrow();
-
+  // Main HTDP routines
   double lat0 = 0, lon0 = 0, eht0 = 0;
   double lat1 = 0, lon1 = 0, eht1 = 0;
   int jregn = 0;
   double vn = 0, ve = 0, vu = 0;
   double dn = 0, de = 0, du = 0;
 
-  // Output vectors
+  // Displacement vectors
   std::vector<double> dx;
   std::vector<double> dy;
   std::vector<double> dz;
 
+  // Velocity vectors
+  std::vector<double> vx;
+  std::vector<double> vy;
+  std::vector<double> vz;
+
   for (int i = 0; i < nrows; i++) {
-    // X/Y in positive N/W, radians
+    // lat/lon in positive N/W, radians
     lat0 = xy(i,1) * (M_PI / 180.0);
     lon0 = -xy(i,0) * (M_PI / 180.0);
 
     // Predict velocity in iopt reference frame
     predv_(&lat0, &lon0, &eht0, &date0, &iopt, &jregn, &vn, &ve, &vu);
+
+    vx.push_back(ve);
+    vy.push_back(vn);
+    vz.push_back(vu);
+
+    Rprintf("Vel: %f\n", vn);
 
     // Predict coordinates and displacements from time MIN1 to time MIN2
     newcor_(&lat0, &lon0, &eht0, &min0, &min1, &lat1, &lon1, &eht1, &dn, &de, &du, &vn, &ve, &vu);
@@ -96,7 +114,12 @@ DataFrame displacement(NumericMatrix xy, Date start, Date end, int iopt)
     dz.push_back(du);
   }
 
-  Rcpp::DataFrame df = Rcpp::DataFrame::create(Rcpp::Named("dx")=dx, Rcpp::Named("dy")=dy, Rcpp::Named("dz")=dz);
+  Rcpp::DataFrame df = Rcpp::DataFrame::create(Rcpp::Named("dx")=dx,
+                                               Rcpp::Named("dy")=dy,
+                                               Rcpp::Named("dz")=dz,
+                                               Rcpp::Named("vx")=vx,
+                                               Rcpp::Named("vy")=vy,
+                                               Rcpp::Named("vz")=vz);
 
   return df;
 }

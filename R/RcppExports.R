@@ -5,7 +5,7 @@
     invisible(.Call('htdp_htdpinit', PACKAGE = 'htdp'))
 }
 
-displacement <- function(xy, start, end, iopt) {
-    .Call('htdp_displacement', PACKAGE = 'htdp', xy, start, end, iopt)
+displace <- function(xy, t0, t1, iopt) {
+    .Call('htdp_displace', PACKAGE = 'htdp', xy, t0, t1, iopt)
 }
 

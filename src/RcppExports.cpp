@@ -14,17 +14,17 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// displacement
-DataFrame displacement(NumericMatrix xy, Date start, Date end, int iopt);
-RcppExport SEXP htdp_displacement(SEXP xySEXP, SEXP startSEXP, SEXP endSEXP, SEXP ioptSEXP) {
+// displace
+DataFrame displace(NumericMatrix xy, Date t0, Date t1, int iopt);
+RcppExport SEXP htdp_displace(SEXP xySEXP, SEXP t0SEXP, SEXP t1SEXP, SEXP ioptSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< NumericMatrix >::type xy(xySEXP);
-    Rcpp::traits::input_parameter< Date >::type start(startSEXP);
-    Rcpp::traits::input_parameter< Date >::type end(endSEXP);
+    Rcpp::traits::input_parameter< Date >::type t0(t0SEXP);
+    Rcpp::traits::input_parameter< Date >::type t1(t1SEXP);
     Rcpp::traits::input_parameter< int >::type iopt(ioptSEXP);
-    __result = Rcpp::wrap(displacement(xy, start, end, iopt));
+    __result = Rcpp::wrap(displace(xy, t0, t1, iopt));
     return __result;
 END_RCPP
 }
