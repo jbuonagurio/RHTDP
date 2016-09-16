@@ -1,4 +1,4 @@
-include $(MkInclude)
+FC = gfortran
 
 SOURCES = \
 	compsn.f \
@@ -44,7 +44,7 @@ SOURCES = \
 
 OBJECTS = $(SOURCES:.f=.o)
 
-LIB_A = ../libhtdp.a
+LIB_A = libhtdp.a
 
 all: static
 static: $(LIB_A)
