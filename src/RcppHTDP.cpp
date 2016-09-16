@@ -104,8 +104,6 @@ DataFrame displace(NumericMatrix xy, Date t0, Date t1, int iopt)
     vy.push_back(vn);
     vz.push_back(vu);
 
-    Rprintf("Vel: %f\n", vn);
-
     // Predict coordinates and displacements from time MIN1 to time MIN2
     newcor_(&lat0, &lon0, &eht0, &min0, &min1, &lat1, &lon1, &eht1, &dn, &de, &du, &vn, &ve, &vu);
 
