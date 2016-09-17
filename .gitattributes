@@ -1,0 +1,2 @@
+*.f linguist-language=Fortran
+src/htdp/*.f linguist-vendored
