@@ -5,10 +5,27 @@ with NetBSD:
 http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/usr.bin/fsplit/ 
 
 Only the subroutines necessary for displacement and velocity 
-calculations are included. The subroutines IYMDMJ, MODEL, NEWCOR, PREDV, 
-SETRF and SETTP have been patched to use the ISO_C_BINDING intrinsic 
-module for better C interoperability. All other subroutines are 
-unmodified from the original source. 
+calculations are included. The following subroutines have been patched 
+to use the ISO_C_BINDING intrinsic module for better C interoperability: 
 
-A standalone makefile is included to build a static library. 
+IYMDMJ, MODEL, NEWCOR, PREDV, SETRF, SETTP
 
+See the following commit for details: 
+
+https://github.com/jbuonagurio/RHTDP/commit/76d729bfc67a7881ec80939dc2ee12b061ae5663
+
+The following subroutines have been patched to replace Fortran I/O 
+(WRITE and STOP statements) with R-only versions of error and warning 
+(REXIT, RWARN) as required by CRAN: 
+
+COMVEL, PLATVL, POLYIN, VTRANF, VTRANF_IERS, XTO08
+
+REXIT and RWARN are defined in src/main/xxxpr.f in the R sources. These 
+subroutines should be replaced for any other use of the HTDP library. 
+See the following commit for details: 
+
+https://github.com/jbuonagurio/RHTDP/commit/28f1bdfcfb86d1527ce2ef050095975cf0fa9233
+
+All other subroutines are unmodified from the original source. 
+
+A sample makefile is included to build a static library. 
