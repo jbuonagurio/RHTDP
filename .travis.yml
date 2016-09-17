@@ -3,21 +3,15 @@ r:
   - devel
 
 sudo: required
-
 dist: trusty
-
 cache: packages
+
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install gcc-4.9 -y
+  - sudo apt-get install g++-4.9 -y
+  - sudo apt-get install gfortran-4.9 -y
 
 after_success:
   - Rscript -e 'library(htdp);displace(matrix(data=c(-121.7722, 36.6698), nrow=1), as.Date("1989-10-16"), as.Date("1989-10-18"), 1)'
-
-matrix:
-  include:
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-4.9
-            - g++-4.9
