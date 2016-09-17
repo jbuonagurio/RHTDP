@@ -1,6 +1,13 @@
 ******************************************************************
       subroutine PREDV(ylat, ylon, eht, date, iopt,
-     1   jregn, vn, ve, vu) 
+     1   jregn, vn, ve, vu) BIND(C)
+      USE, INTRINSIC :: ISO_C_BINDING, ONLY: C_DOUBLE, C_INT
+      
+      REAL(C_DOUBLE), VALUE, INTENT(IN) :: YLAT,YLON,EHT,DATE
+      INTEGER(C_INT), VALUE, INTENT(IN) :: IOPT
+      INTEGER(C_INT), INTENT(OUT) :: JREGN
+      REAL(C_DOUBLE), INTENT(OUT) :: VN,VE,VU
+      REAL(C_DOUBLE) :: ELON,X,Y,Z,RLAT,RLON,EHTNAD,VX,VY,VZ
 
 ** Predict velocity in iopt reference frame       
 
@@ -14,8 +21,8 @@
 ** ve         output - eastward velocity in mm/yr
 ** vu         output - upward velocity in mm/yr
 
-      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+C     IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+C     IMPLICIT INTEGER*4 (I-N)
       logical  Is_iopt_NAD83
 
 ** Get reference latitude (RLAT) and reference longitude (RLON)
