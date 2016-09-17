@@ -15,12 +15,12 @@ displace(xy, t0, t1, iopt)
 }
 \value{
   A \code{data.frame} with 6 columns:
-    \item{dx}{Eastward displacement (meters)}
-    \item{dy}{Northward displacement (meters)}
-    \item{dz}{Upward displacement (meters)}
-    \item{vx}{Eastward velocity (mm/yr)}
-    \item{vy}{Northward velocity (mm/yr)}
-    \item{vz}{Upward velocity (mm/yr)}
+    \item{de}{Eastward displacement (meters)}
+    \item{dn}{Northward displacement (meters)}
+    \item{du}{Upward displacement (meters)}
+    \item{ve}{Eastward velocity (mm/yr)}
+    \item{vn}{Northward velocity (mm/yr)}
+    \item{vu}{Upward velocity (mm/yr)}
 }
 \examples{
 beta <- matrix(data=c(-121.7722, 36.6698), nrow=1)

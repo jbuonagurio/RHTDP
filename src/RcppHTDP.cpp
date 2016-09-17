@@ -112,12 +112,12 @@ DataFrame displace(NumericMatrix xy, Date t0, Date t1, int iopt)
     dz.push_back(du);
   }
 
-  Rcpp::DataFrame df = Rcpp::DataFrame::create(Rcpp::Named("dx")=dx,
-                                               Rcpp::Named("dy")=dy,
-                                               Rcpp::Named("dz")=dz,
-                                               Rcpp::Named("vx")=vx,
-                                               Rcpp::Named("vy")=vy,
-                                               Rcpp::Named("vz")=vz);
+  Rcpp::DataFrame df = Rcpp::DataFrame::create(Rcpp::Named("de")=dx,
+                                               Rcpp::Named("dn")=dy,
+                                               Rcpp::Named("du")=dz,
+                                               Rcpp::Named("ve")=vx,
+                                               Rcpp::Named("vn")=vy,
+                                               Rcpp::Named("vu")=vz);
 
   return df;
 }

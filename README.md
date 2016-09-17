@@ -25,7 +25,7 @@ displace(beta, t0, t1, 1)
 
 R output:
 ```
-            dx         dy           dz        vx       vy        vz
+            de         dn           du        ve       vn        vu
 1 -0.001449719 0.07401263 -0.004262457 -25.82612 37.15177 -1.329391
 ```
 
