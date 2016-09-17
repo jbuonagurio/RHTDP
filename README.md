@@ -1,10 +1,10 @@
-# RHTDP
+## RHTDP [![Build Status](https://travis-ci.org/jbuonagurio/RHTDP.svg)](https://travis-ci.org/jbuonagurio/RHTDP)
 
 RHTDP provides R bindings to the NGS [Horizontal Time-Dependent Positioning](https://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml) utility, v3.2.5, written by Richard Snay, Chris Pearson, and Jarir Saleh of NGS. HTDP allows users to transform positional coordinates across time and between spatial reference frames.
 
 RHTDP is a work-in-progress; currently only crustal displacement and velocity calculations are implemented. Transformations between reference frames are planned, as well as integration with the [sp](https://cran.r-project.org/package=sp) package.
 
-## Installation
+### Installation
 
 ```R
 # Development version from GitHub:
@@ -12,7 +12,7 @@ RHTDP is a work-in-progress; currently only crustal displacement and velocity ca
 devtools::install_github("jbuonagurio/RHTDP")
 ```
 
-## Usage
+### Usage
 
 Following exercises 1 and 2 in the HTDP User's Guide, the following example estimates the displacement that occurred at point 'beta' during the [Loma Prieta earthquake](https://en.wikipedia.org/wiki/1989_Loma_Prieta_earthquake) (M=7.1) of October 18, 1989. The NAD_83(2011/CORS96/2007) reference frame is used (iopt=1).
 
@@ -84,7 +84,7 @@ Supported values for iopt are below; see the User's Guide for more information. 
 | 22 | ITRF2005 or IGS05 |
 | 23 | ITRF2008 or IGS08/IGb08 |
 
-## Warning
+### Warning
 
 HTDP exclusively uses 14-parameter transformations between reference frames. If you require rigorous transformations between various realizations of NAD83, use NADCON/GEOCON/GEOCON11.
 
