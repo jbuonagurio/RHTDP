@@ -1,0 +1,9 @@
+language: r
+r:
+  - release
+  - devel
+
+cache: packages
+
+after_success:
+  - Rscript -e 'library(htdp);displace(matrix(data=c(-121.7722, 36.6698), nrow=1), as.Date("1989-10-16"), as.Date("1989-10-18"), 1)'
