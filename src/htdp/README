@@ -1,0 +1,14 @@
+The Fortran-90 files in this directory were generated from the original 
+HTDP v3.2.5 source code (htdp.for) using the fsplit utility, included 
+with NetBSD: 
+
+http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/usr.bin/fsplit/ 
+
+Only the subroutines necessary for displacement and velocity 
+calculations are included. The subroutines IYMDMJ, MODEL, NEWCOR, PREDV, 
+SETRF and SETTP have been patched to use the ISO_C_BINDING intrinsic 
+module for better C interoperability. All other subroutines are 
+unmodified from the original source. 
+
+A standalone makefile is included to build a static library. 
+
