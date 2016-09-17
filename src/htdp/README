@@ -5,14 +5,9 @@ with NetBSD:
 http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/usr.bin/fsplit/ 
 
 Only the subroutines necessary for displacement and velocity 
-calculations are included. The following subroutines have been patched 
-to use the ISO_C_BINDING intrinsic module for better C interoperability: 
+calculations are included. The following subroutines are called from C:
 
 IYMDMJ, MODEL, NEWCOR, PREDV, SETRF, SETTP
-
-See the following commit for details: 
-
-https://github.com/jbuonagurio/RHTDP/commit/76d729bfc67a7881ec80939dc2ee12b061ae5663
 
 The following subroutines have been patched to replace Fortran I/O 
 (WRITE and STOP statements) with R-only versions of error and warning 

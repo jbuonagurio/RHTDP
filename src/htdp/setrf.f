@@ -1,6 +1,5 @@
 *********************************************************
-      SUBROUTINE SETRF() BIND(C)
-      USE, INTRINSIC :: ISO_C_BINDING
+      SUBROUTINE SETRF
 
 *** Specify arrays that may be used to convert
 *** a reference frame identifier in the blue book

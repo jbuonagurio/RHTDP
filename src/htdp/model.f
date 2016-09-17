@@ -1,6 +1,5 @@
 *****************************************************************************
-      SUBROUTINE MODEL() BIND(C)
-      USE, INTRINSIC :: ISO_C_BINDING
+      SUBROUTINE MODEL
 
 *** Obtain parameters defining crustal motion model
 

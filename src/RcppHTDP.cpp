@@ -6,13 +6,13 @@ using namespace Rcpp;
 void c_getmdy(const int month, const int iday, const int iyear, double *date, int *mins)
 {
   // Calculate modified Julian date
-  int mjd = 0, mjd0 = 0, mjd1 = 0;
-  iymdmj(iyear, month, iday, &mjd);
+  int mjd = 0, mjd0 = 0, mjd1 = 0, i = 1;
+  iymdmj_(&iyear, &month, &iday, &mjd);
 
   // Calculate time in decimal years (date)
-  iymdmj(iyear, 1, 1, &mjd0);
+  iymdmj_(&iyear, &i, &i, &mjd0);
   int iyear1 = iyear + 1;
-  iymdmj(iyear1, 1, 1, &mjd1);
+  iymdmj_(&iyear1, &i, &i, &mjd1);
   int day = mjd - mjd0;
   int denom = mjd1 - mjd0;
   *date = iyear + (day / denom);
@@ -27,13 +27,13 @@ void c_getmdy(const int month, const int iday, const int iyear, double *date, in
 void htdpinit()
 {
   // Obtain parameters defining crustal motion model
-  model();
+  model_();
 
   // Initialize transformation parameters from ITRF94 to other reference frames
-  settp();
+  settp_();
 
   // Initialize conversion table between reference frame identifiers
-  setrf();
+  setrf_();
 
   return;
 }
@@ -98,14 +98,14 @@ DataFrame displace(NumericMatrix xy, Date t0, Date t1, int iopt)
     lon0 = -xy(i,0) * (M_PI / 180.0);
 
     // Predict velocity in iopt reference frame
-    predv(lat0, lon0, eht0, date0, iopt, &jregn, &vn, &ve, &vu);
+    predv_(&lat0, &lon0, &eht0, &date0, &iopt, &jregn, &vn, &ve, &vu);
 
     vx.push_back(ve);
     vy.push_back(vn);
     vz.push_back(vu);
 
     // Predict coordinates and displacements from time MIN1 to time MIN2
-    newcor(lat0, lon0, eht0, min0, min1, &lat1, &lon1, &eht1, &dn, &de, &du, &vn, &ve, &vu);
+    newcor_(&lat0, &lon0, &eht0, &min0, &min1, &lat1, &lon1, &eht1, &dn, &de, &du, &vn, &ve, &vu);
 
     dx.push_back(de);
     dy.push_back(dn);

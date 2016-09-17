@@ -1,7 +1,6 @@
 
 **********************************************************
-      subroutine SETTP() BIND(C)
-      USE, INTRINSIC :: ISO_C_BINDING
+      subroutine SETTP
 
 *** Specify transformation parameters from ITRF94
 *** to other reference frames

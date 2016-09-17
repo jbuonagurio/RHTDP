@@ -1,11 +1,5 @@
 ************************************
-      SUBROUTINE IYMDMJ( IYR, IMON, IDAY, MJD ) BIND(C)
-      USE, INTRINSIC :: ISO_C_BINDING, ONLY: C_INT
-      
-      INTEGER(C_INT), VALUE, INTENT(IN) :: IYR,IMON,IDAY
-      INTEGER(C_INT), INTENT(OUT) :: MJD
-      INTEGER(4) :: IYRP, IMOP
-      
+      SUBROUTINE IYMDMJ( IYR, IMON, IDAY, MJD )
 C
 C********1*********2*********3*********4*********5*********6*********7**
 C
@@ -60,8 +54,8 @@ C::8909.06, MSS, DOC STANDARD IMPLIMENTED
 C::9004.17, MSS, CHANGE ORDER YY MM DD
 C********1*********2*********3*********4*********5*********6*********7**
 C
-C     IMPLICIT DOUBLE PRECISION(A-H, O-Z)
-C     IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT DOUBLE PRECISION(A-H, O-Z)
+      IMPLICIT INTEGER*4 (I-N)
 C
       INTEGER*4     A, B, C, D
 
