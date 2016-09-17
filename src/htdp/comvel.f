@@ -69,9 +69,10 @@ c          CALL TOVNEU(YLAT, ELON, VX, VY, VZ, VN, VE, VU)
 c       ENDIF
 
       ELSE
-        WRITE(LUOUT,100) JREGN
-  100   FORMAT(' Improper region identifier ',I4,'in COMVEL.')
-        STOP
+C       WRITE(LUOUT,100) JREGN
+C 100   FORMAT(' Improper region identifier ',I4,'in COMVEL.')
+C       STOP
+        CALL REXIT('Improper region identifier in routine COMVEL')
       ENDIF
       RETURN
       END
