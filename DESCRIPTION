@@ -1,7 +1,7 @@
 Package: htdp
 Type: Package
 Title: Horizontal Time Dependent Positioning
-Version: 0.1.1
+Version: 0.1.2
 Date: 2016-09-17
 Authors@R: c(
     person("John", "Buonagurio", , "jbuonagurio@exponent.com",
