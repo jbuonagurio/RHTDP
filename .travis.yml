@@ -2,6 +2,10 @@ language: r
 r:
   - devel
 
+sudo: required
+
+dist: trusty
+
 cache: packages
 
 after_success:
