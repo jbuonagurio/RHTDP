@@ -35,10 +35,10 @@
           IF(ITEQK(I) .GT. ITREF) THEN 
                NTIME = 1
           ELSE
-	       NTIME = 0
+           NTIME = 0
           ENDIF
-	  IF(MIN .LT. ITEQK(I)) NTIME = NTIME - 1
-	  IF(NTIME .NE. 0) THEN 
+      IF(MIN .LT. ITEQK(I)) NTIME = NTIME - 1
+      IF(NTIME .NE. 0) THEN 
              CALL RADII(EQLATR(I),RADMER,RADPAR)
              DDLAT = (YLAT - EQLATR(I))*RADMER
              DDLON = (YLON - EQLONR(I))*RADPAR

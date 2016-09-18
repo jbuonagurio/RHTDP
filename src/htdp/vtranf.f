@@ -33,7 +33,7 @@ C  The parameters in common block tranpa1 are computed using the IERS values of 
          WX = -drx(iopt1)           
          WY = -dry(iopt1)      
          WZ = -drz(iopt1)      
-	 DS = -dscale(iopt1)
+         DS = -dscale(iopt1)
          VX = VX - dtx(iopt1) + DS*X + WZ*Y - WY*Z
          VY = VY - dty(iopt1) - WZ*X  +DS*Y + WX*Z
          VZ = VZ - dtz(iopt1) + WY*X - WX*Y + DS*Z
@@ -44,7 +44,7 @@ C  The parameters in common block tranpa1 are computed using the IERS values of 
          WX = drx(iopt2)
          WY = dry(iopt2)
          WZ = drz(iopt2)
-	 DS = dscale(iopt2)
+         DS = dscale(iopt2)
          VX = VX + dtx(iopt2) + DS*X + WZ*Y - WY*Z
          VY = VY + dty(iopt2) - WZ*X + DS*Y + WX*Z 
          VZ = VZ + dtz(iopt2) + WY*X - WX*Y + DS*Z
