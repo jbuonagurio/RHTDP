@@ -48,7 +48,7 @@ C********1*********2*********3*********4*********5*********6*********7**
 C**** COMPUTES THE WEIGHTS FOR AN ELEMENT IN A GRID
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (NUMPSG = 1)
       DIMENSION WEI(2,2)
       COMMON /PSGRID/ PSGLX(NUMPSG), PSGUX(NUMPSG), 

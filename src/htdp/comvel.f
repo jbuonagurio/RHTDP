@@ -4,7 +4,7 @@ C
 C Compute the NAD_83(CORS96) velocity at a point in mm/yr    !Not anymore since 09/12/2014
                                                              !Now the velocity refer to ITRF2008
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (NUMGRD = 10)
       parameter (NMREGN = 17)
       COMMON /CONST/ A,F,E2,EPS,AF,PI,TWOPI,RHOSEC

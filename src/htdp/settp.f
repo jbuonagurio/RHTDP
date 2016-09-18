@@ -14,7 +14,7 @@ C  They will be used for the Pacific branches of NAD83.
 
 
       implicit double precision (a-h, o-z)
-      implicit integer*4 (i-n)
+      implicit INTEGER(4) (i-n)
       parameter (numref = 15)
 
       common /const/ a, f, e2, eps, af, pi, twopi, rhosec

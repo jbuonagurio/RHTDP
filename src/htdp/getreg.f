@@ -4,7 +4,7 @@
 *** Determine the region containing a given point.
 
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (NMREGN = 17)
       COMMON /BNDRY/ X(4000), Y(4000), NPOINT(30)
       COMMON /FILES/ LUIN, LUOUT, I1, I2, I3, I4, I5, I6

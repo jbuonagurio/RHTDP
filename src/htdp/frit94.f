@@ -16,7 +16,7 @@ C  The parameters in common block tranpa1 are computed using the IERS values of 
 *** jopt --> input specifier of output reference frame
 
       implicit double precision (a-h, o-z)
-      implicit integer*4 (i-n)
+      implicit INTEGER(4) (i-n)
       parameter (numref = 15)
 
       common /tranpa/ tx(numref), ty(numref), tz(numref), 

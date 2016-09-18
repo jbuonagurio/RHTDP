@@ -11,7 +11,7 @@ C
 ***    TEST       output - if (true) then there is an error
 C
 C     IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-C     IMPLICIT INTEGER*4 (I-N)
+C     IMPLICIT INTEGER(4) (I-N)
 C     LOGICAL TEST
 C     COMMON /FILES/ LUIN, LUOUT, I1, I2, I3, I4, I5, I6
 

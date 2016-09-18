@@ -48,7 +48,7 @@
 *            of normal dip slip
 *******************************************************************
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       LOGICAL VERT   
       PI = 3.141593D0
       TWOPI = PI + PI

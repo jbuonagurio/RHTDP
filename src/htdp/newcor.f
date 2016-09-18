@@ -6,7 +6,7 @@
 *** Predict displacements from time MIN1 to time MIN2.
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
 
       HT = HTOLD
 

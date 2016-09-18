@@ -5,7 +5,7 @@
 *** a reference frame identifier in the blue book
 *** to a reference frame identifier in HTDP and back
 
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter ( numref = 15 )
       COMMON /REFCON/ IRFCON(28), JRFCON(numref)
 

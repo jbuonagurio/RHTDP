@@ -4,7 +4,7 @@
 *** Obtain parameters defining crustal motion model
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       COMMON /CONST/ A,F,E2,EPS,AF,PI,TWOPI,RHOSEC
       COMMON /TIMREF/ ITREF
 

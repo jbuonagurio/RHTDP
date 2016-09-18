@@ -4,7 +4,7 @@ C***************************************************
       INTEGER FUNCTION IUNGRD(IREGN, I, J, IVEC)
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (NUMGRD = 10)
       COMMON /CDGRID/ GRDLX(NUMGRD), GRDUX(NUMGRD),
      1          GRDLY(NUMGRD), GRDUY(NUMGRD),

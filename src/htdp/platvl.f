@@ -9,7 +9,7 @@
 ***     Snay 2003 = SALIS, Vol 63, No 1 (Paper on Frames for Pacific)
 
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       DIMENSION WX(7), WY(7), WZ(7)
       COMMON /FILES/ LUIN, LUOUT, I1, I2, I3, I4, I5, I6
 

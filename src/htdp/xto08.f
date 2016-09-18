@@ -6,7 +6,7 @@
 *** datum with longitude positive west.
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       LOGICAL FRMXYZ
       COMMON /CONST/ A,F,E2,EPS,AF,PI,TWOPI,RHOSEC
 

@@ -23,7 +23,7 @@
 *** REGION 17 is the Philippine Sea plate
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (NMREGN = 17)
       COMMON /CONST/ A,F,E2,EPS,AF,PI,TWOPI,RHOSEC
       COMMON /BNDRY/ X(4000), Y(4000), NPOINT(30)

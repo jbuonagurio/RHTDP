@@ -55,9 +55,9 @@ C::9004.17, MSS, CHANGE ORDER YY MM DD
 C********1*********2*********3*********4*********5*********6*********7**
 C
       IMPLICIT DOUBLE PRECISION(A-H, O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
 C
-      INTEGER*4     A, B, C, D
+      INTEGER(4)     A, B, C, D
 
       IYRP = IYR
 C

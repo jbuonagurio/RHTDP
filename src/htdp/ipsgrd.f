@@ -3,7 +3,7 @@ C***************************************************
       INTEGER FUNCTION IPSGRD(IGRID, I, J, IVEC)
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (NUMPSG = 1)
       COMMON /PSGRID/ PSGLX(NUMPSG), PSGUX(NUMPSG),
      1          PSGLY(NUMPSG), PSGUY(NUMPSG),

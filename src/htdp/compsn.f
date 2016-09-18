@@ -7,7 +7,7 @@
 *** Upon input VN, VE, and VU are in mm/yr
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (NDLOC = 2195)
 
       COMMON /CONST/ A,F,E2,EPS,AF,PI,TWOPI,RHOSEC

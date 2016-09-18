@@ -29,7 +29,7 @@
 *         DUP = upward displacement in meters
 ************** 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
 
 *** Compute radii of curvature at fault center
       CALL RADII (EQLAT, RMER, RPAR)

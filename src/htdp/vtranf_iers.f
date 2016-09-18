@@ -9,7 +9,7 @@ C  The parameters in common block tranpa are computed using the IGS values of IT
 C  The parameters in common block tranpa1 are computed using the IERS values of ITRF96==>ITRF97
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       parameter (numref = 15)
       common /tranpa1/ tx1(numref), ty1(numref), tz1(numref), 
      &                dtx1(numref), dty1(numref), dtz1(numref),

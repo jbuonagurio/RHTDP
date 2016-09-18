@@ -16,7 +16,7 @@
 *******
 
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       LOGICAL INSIDE
 
       parameter (NUMPSG = 1)

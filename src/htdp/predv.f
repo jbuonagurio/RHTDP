@@ -15,7 +15,7 @@
 ** vu         output - upward velocity in mm/yr
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       logical  Is_iopt_NAD83
 
 ** Get reference latitude (RLAT) and reference longitude (RLON)

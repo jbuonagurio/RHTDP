@@ -2,7 +2,7 @@
       SUBROUTINE TOVXYZ(GLAT,GLON,VN,VE,VU,VX,VY,VZ)
 *** Convert velocities from vn,ve,vu to vx,vy,vz
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
 
       SLAT = DSIN(GLAT)
       CLAT = DCOS(GLAT)

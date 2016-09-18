@@ -48,7 +48,7 @@ C********1*********2*********3*********4*********5*********6*********7**
 
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-      IMPLICIT INTEGER*4 (I-N)
+      IMPLICIT INTEGER(4) (I-N)
       DIMENSION VEL(2,2,3), B(*)
 
       DO 30 II = 0,1
