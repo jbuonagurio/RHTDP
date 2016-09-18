@@ -38,27 +38,27 @@ c            CALL XTONAD(X,Y,Z,RLAT,RLON,EHTNAD,DATE,IOPT)   !No longer NAD83
 ** Get deformation region
 
          CALL GETREG(RLAT,RLON,JREGN)
-     IF (JREGN .EQ. 0) THEN
-        VN = 0.D0
-        VE = 0.D0
-        VU = 0.D0
-        RETURN
+         IF (JREGN .EQ. 0) THEN
+            VN = 0.D0
+            VE = 0.D0
+            VU = 0.D0
+            RETURN
          ENDIF
-     CALL COMVEL( RLAT, RLON, JREGN, VN, VE, VU)       !Those velocities are in ITRF2008
+         CALL COMVEL( RLAT, RLON, JREGN, VN, VE, VU)       !Those velocities are in ITRF2008
 
 ** Convert  velocity to reference of iopt, if iopt != NAD83   !No, was in ITRF2008, not in NAD83  (since 09/12/2014)
 
          Is_iopt_NAD83 = (iopt == 1)
 c        IF (IOPT .NE. 0 .AND. IOPT .NE. 1) THEN
-     IF (IOPT .NE. 15) THEN
-        CALL TOVXYZ( YLAT, ELON, VN, VE, VU, VX, VY, VZ)
+         IF (IOPT .NE. 15) THEN
+            CALL TOVXYZ( YLAT, ELON, VN, VE, VU, VX, VY, VZ)
             if (Is_iopt_NAD83) then
 c             CALL VTRANF( X, Y, Z, VX, VY, VZ, 1, IOPT)
               CALL VTRANF( X, Y, Z, VX, VY, VZ, 15, IOPT)
             else
               CALL VTRANF_IERS( X, Y, Z, VX, VY, VZ, 15, IOPT)
             endif
-        CALL TOVNEU( YLAT, ELON, VX, VY, VZ, VN, VE, VU)
+            CALL TOVNEU( YLAT, ELON, VX, VY, VZ, VN, VE, VU)
          ENDIF
 
          RETURN
