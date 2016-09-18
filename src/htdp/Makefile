@@ -1,4 +1,7 @@
+CC = gcc
+CFLAGS = -O2 -mtune=core2
 FC = gfortran
+FFLAGS = -O3 -mtune=core2 -fbounds-check
 
 SOURCES = \
 	compsn.f \
@@ -31,6 +34,7 @@ SOURCES = \
 	psgwei.f \
 	radii.f \
 	radr8t.f \
+    rexit.f \
 	setrf.f \
 	settp.f \
 	toit94.f \
@@ -45,16 +49,26 @@ SOURCES = \
 OBJECTS = $(SOURCES:.f=.o)
 
 LIB_A = libhtdp.a
+LIB_SO = htdp.dll
+EXE = example.exe
 
-all: static
+all: shared example
 static: $(LIB_A)
+shared: $(LIB_SO)
 
 $(LIB_A): $(OBJECTS)
 	rm -f $(LIB_A)
 	$(AR) -crs $(LIB_A) $(OBJECTS)
-    
+
+$(LIB_SO): $(OBJECTS)
+	rm -f $(LIB_SO)	
+	$(CC) -shared -o $(LIB_SO) $(OBJECTS) -lgfortran -lm -lquadmath
+
+example:
+	$(CC) $(CFLAGS) example.c -o $(EXE) -L. -lhtdp
+
 clean:
-	rm -f $(OBJECTS) $(LIB_A)
+	rm -f $(OBJECTS) $(LIB_A) $(LIB_SO) $(EXE)
 
 # Dependencies
 model.o: iymdmj.o getbdy.o
@@ -66,11 +80,14 @@ okada.o: okadaw.o
 psdisp.o: iymdmj.o grdchk.o psgwei.o grdamp.o
 grdamp.o: ipsgrd.o
 predv.o: toxyz.o xto08.o getreg.o comvel.o tovxyz.o vtranf.o vtranf_iers.o tovneu.o
-xto08.o: toit94.o frit94.o toit94_iers.o frit94_iers.o frmxyz.o
+xto08.o: toit94.o frit94.o toit94_iers.o frit94_iers.o frmxyz.o rexit.o
 getreg.o: polyin.o
-comvel.o: toxyz.o platvl.o tovneu.o grdwei.o grdvec.o
-platvl.o: vtranf.o
+polyin.o: rexit.o
+comvel.o: toxyz.o platvl.o tovneu.o grdwei.o grdvec.o rexit.o
+platvl.o: vtranf.o rexit.o
 grdvec.o: iungrd.o
+vtranf.o: rexit.o
+vtranf_iers.o: rexit.o
 
 %.o: %.f
 	$(FC) $(FFLAGS) -c $<
