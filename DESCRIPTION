@@ -1,8 +1,8 @@
 Package: htdp
 Type: Package
 Title: Horizontal Time Dependent Positioning
-Version: 0.1.2
-Date: 2016-09-17
+Version: 0.1.3
+Date: 2016-09-18
 Authors@R: c(
     person("John", "Buonagurio", , "jbuonagurio@exponent.com",
            role = c("aut", "cre")),
