@@ -1,8 +1,8 @@
 Package: htdp
 Type: Package
 Title: Horizontal Time Dependent Positioning
-Version: 0.1.3
-Date: 2016-09-18
+Version: 0.1.4
+Date: 2016-09-19
 Authors@R: c(
     person("John", "Buonagurio", , "jbuonagurio@exponent.com",
            role = c("aut", "cre")),
@@ -10,10 +10,12 @@ Authors@R: c(
            role = "cph", comment = "Author of included HTDP code")
   )
 Maintainer: John Buonagurio <jbuonagurio@exponent.com>
-Description: Provides bindings to the NGS Horizontal Time Dependent Positioning
- (HTDP) utility, v3.2.5, written by Richard Snay, Chris Pearson, and Jarir Saleh
- of NGS. HTDP is a utility that allows users to transform positional coordinates
- across time and between spatial reference frames.
+Description: Provides bindings to the National Geodetic Survey (NGS) Horizontal
+ Time Dependent Positioning (HTDP) utility, v3.2.5, written by Richard Snay,
+ Chris Pearson, and Jarir Saleh of NGS. HTDP is a utility that allows users to
+ transform positional coordinates across time and between spatial reference
+ frames. See <https://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml> for more
+ information.
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports: Rcpp (>= 0.12.5)
