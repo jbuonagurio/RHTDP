@@ -1,4 +1,4 @@
-## RHTDP [![Build Status](https://travis-ci.org/jbuonagurio/RHTDP.svg)](https://travis-ci.org/jbuonagurio/RHTDP)
+## RHTDP [![Build Status](https://travis-ci.org/jbuonagurio/RHTDP.svg)](https://travis-ci.org/jbuonagurio/RHTDP) [![CRAN](http://www.r-pkg.org/badges/version/htdp)](http://cran.r-project.org/package=htdp)
 
 RHTDP provides R bindings to the NGS [Horizontal Time-Dependent Positioning](https://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml) utility, v3.2.5, written by Richard Snay, Chris Pearson, and Jarir Saleh of NGS. HTDP allows users to transform positional coordinates across time and between spatial reference frames.
 
@@ -7,6 +7,9 @@ RHTDP is a work-in-progress; currently only crustal displacement and velocity ca
 ### Installation
 
 ```R
+# Released version from CRAN:
+install.packages("htdp")
+
 # Development version from GitHub:
 # install.packages("devtools")
 devtools::install_github("jbuonagurio/RHTDP")
